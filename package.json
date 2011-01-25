@@ -1,0 +1,31 @@
+{
+  "name": "underscore.date",
+  "version": "0.0.1",
+  "description": "Date manipulation extensions for Underscore.js javascript library.",
+  "homepage": "http://github.com/Flamefork/underscore.date",
+  "author"        : "Ilia Ablamonov <ilia@flamefork.ru>",
+  "contributors": [],
+  "keywords": [
+    "underscore",
+    "date"
+  ],
+  "directories": {
+    "lib": "./lib"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "dependencies": {
+    "underscore": "1.1.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://Flamefork@github.com/Flamefork/underscore.date.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Flamefork/underscore.date/issues"
+  },
+  "licenses" : [
+    { "type" : "MIT" }
+  ]
+}
