@@ -41,11 +41,10 @@ vows.describe('date').addBatch({
             assert.equal(_.strftime(topic, '%Y-%m-%d %H:%M:%S'), '2001-02-03 04:05:06');
         },
         'should support all strftime features': function (topic) {
-//            assert.equal(_.strftime(topic, '%A %a %B %b %c'), '');
-//            assert.equal(_.strftime(topic, '%A'), '');
-//            assert.equal(_.strftime(topic, '%a'), '');
-//            assert.equal(_.strftime(topic, '%B'), '');
-//            assert.equal(_.strftime(topic, '%b'), '');
+            assert.equal(_.strftime(topic, '%A'), 'Saturday');
+            assert.equal(_.strftime(topic, '%a'), 'Sat');
+            assert.equal(_.strftime(topic, '%B'), 'February');
+            assert.equal(_.strftime(topic, '%b'), 'Feb');
             assert.equal(_.strftime(topic, '%C'), '20');
 //            assert.equal(_.strftime(topic, '%c'), '');
             assert.equal(_.strftime(topic, '%D'), '02/03/01');
@@ -63,7 +62,7 @@ vows.describe('date').addBatch({
             assert.equal(_.strftime(topic, '%M'), '05');
             assert.equal(_.strftime(topic, '%m'), '02');
             assert.equal(_.strftime(topic, '%n'), '\n');
-//            assert.equal(_.strftime(topic, '%p'), '');
+            assert.equal(_.strftime(topic, '%p'), 'AM');
             assert.equal(_.strftime(topic, '%R'), '04:05');
 //            assert.equal(_.strftime(topic, '%r'), '');
             assert.equal(_.strftime(topic, '%S'), '06');
@@ -85,8 +84,8 @@ vows.describe('date').addBatch({
             assert.equal(_.strftime(topic, '%%'), '%');
         },
         'should support strftime edge cases': function () {
-            assert.equal(_.strftime(_.date(2001, 1, 1, 0), '%I'), '12');
-            assert.equal(_.strftime(_.date(2001, 1, 1, 12), '%l'), '12');
+            assert.equal(_.strftime(_.date(2001, 1, 1, 0), '%I %p'), '12 AM');
+            assert.equal(_.strftime(_.date(2001, 1, 1, 12), '%l %p'), '12 PM');
         }
     }
 }).export(module);
