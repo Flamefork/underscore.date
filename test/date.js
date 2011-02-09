@@ -94,6 +94,14 @@ vows.describe('date').addBatch({
             assert.equal(_.dayOfYear(_.date(2001, 1, 10)), 10);
             assert.equal(_.dayOfYear(_.date(2001, 10, 10)), 283);
             assert.equal(_.dayOfYear(_.date(2000, 12, 31)), 366);
+        },
+        'should support dayOfWeek method': function () {
+            assert.equal(_.dayOfWeek(_.date(2001, 1, 1), 0), 1);
+            assert.equal(_.dayOfWeek(_.date(2001, 1, 1), 1), 0);
+            assert.equal(_.dayOfWeek(_.date(2001, 1, 1), 3), 5);
+            assert.equal(_.dayOfWeek(_.date(2001, 1, 3), 0), 3);
+            assert.equal(_.dayOfWeek(_.date(2001, 1, 3), 1), 2);
+            assert.equal(_.dayOfWeek(_.date(2001, 1, 3), 3), 0);
         }
     }
 }).export(module);
