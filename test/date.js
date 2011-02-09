@@ -70,11 +70,11 @@ vows.describe('date').addBatch({
             assert.equal(_.strftime(topic, '%T'), '04:05:06');
             assert.equal(_.strftime(topic, '%t'), '\t');
 //            assert.equal(_.strftime(topic, '%U'), '');
-//            assert.equal(_.strftime(topic, '%u'), '');
+            assert.equal(_.strftime(topic, '%u'), '6');
 //            assert.equal(_.strftime(topic, '%V'), '');
 //            assert.equal(_.strftime(topic, '%v'), '');
 //            assert.equal(_.strftime(topic, '%W'), '');
-//            assert.equal(_.strftime(topic, '%w'), '');
+            assert.equal(_.strftime(topic, '%w'), '6');
 //            assert.equal(_.strftime(topic, '%X'), '');
 //            assert.equal(_.strftime(topic, '%x'), '');
             assert.equal(_.strftime(topic, '%Y'), '2001');
@@ -86,6 +86,8 @@ vows.describe('date').addBatch({
         'should support strftime edge cases': function () {
             assert.equal(_.strftime(_.date(2001, 1, 1, 0), '%I %p'), '12 AM');
             assert.equal(_.strftime(_.date(2001, 1, 1, 12), '%l %p'), '12 PM');
+            assert.equal(_.strftime(_.date(2001, 1, 7), '%u'), '7');
+            assert.equal(_.strftime(_.date(2001, 1, 7), '%w'), '0');
         }
     }
 }).export(module);
