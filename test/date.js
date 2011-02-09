@@ -56,7 +56,7 @@ vows.describe('date').addBatch({
             assert.equal(_.strftime(topic, '%H'), '04');
 //            assert.equal(_.strftime(topic, '%h'), '');
             assert.equal(_.strftime(topic, '%I'), '04');
-//            assert.equal(_.strftime(topic, '%j'), '');
+            assert.equal(_.strftime(topic, '%j'), '034');
             assert.equal(_.strftime(topic, '%k'), ' 4');
             assert.equal(_.strftime(topic, '%l'), ' 4');
             assert.equal(_.strftime(topic, '%M'), '05');
@@ -88,6 +88,12 @@ vows.describe('date').addBatch({
             assert.equal(_.strftime(_.date(2001, 1, 1, 12), '%l %p'), '12 PM');
             assert.equal(_.strftime(_.date(2001, 1, 7), '%u'), '7');
             assert.equal(_.strftime(_.date(2001, 1, 7), '%w'), '0');
+        },
+        'should support dayOfYear method': function () {
+            assert.equal(_.dayOfYear(_.date(2001, 1, 1)), 1);
+            assert.equal(_.dayOfYear(_.date(2001, 1, 10)), 10);
+            assert.equal(_.dayOfYear(_.date(2001, 10, 10)), 283);
+            assert.equal(_.dayOfYear(_.date(2000, 12, 31)), 366);
         }
     }
 }).export(module);
