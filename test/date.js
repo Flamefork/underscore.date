@@ -51,8 +51,8 @@ vows.describe('date').addBatch({
             assert.equal(_.strftime(topic, '%d'), '03');
             assert.equal(_.strftime(topic, '%e'), ' 3');
             assert.equal(_.strftime(topic, '%F'), '2001-02-03');
-//            assert.equal(_.strftime(topic, '%G'), '');
-//            assert.equal(_.strftime(topic, '%g'), '');
+            assert.equal(_.strftime(topic, '%G'), '2001');
+            assert.equal(_.strftime(topic, '%g'), '01');
             assert.equal(_.strftime(topic, '%H'), '04');
             assert.equal(_.strftime(topic, '%h'), 'Feb');
             assert.equal(_.strftime(topic, '%I'), '04');
@@ -118,6 +118,14 @@ vows.describe('date').addBatch({
             assert.equal(_.weekNumber(_.date(2005, 2, 1), 'iso'), 5);
             assert.equal(_.weekNumber(_.date(2001, 12, 31), 'iso'), 1);
             assert.equal(_.weekNumber(_.date(2004, 12, 31), 'iso'), 53);
+        },
+        'should support ISO weekBasedYear method': function () {
+            assert.equal(_.weekBasedYear(_.date(2001, 1, 1)), 2001);
+            assert.equal(_.weekBasedYear(_.date(2001, 2, 1)), 2001);
+            assert.equal(_.weekBasedYear(_.date(2005, 1, 1)), 2004);
+            assert.equal(_.weekBasedYear(_.date(2005, 2, 1)), 2005);
+            assert.equal(_.weekBasedYear(_.date(2001, 12, 31)), 2002);
+            assert.equal(_.weekBasedYear(_.date(2004, 12, 31)), 2004);
         }
     }
 }).export(module);
