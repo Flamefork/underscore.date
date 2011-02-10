@@ -71,7 +71,7 @@ vows.describe('date').addBatch({
             assert.equal(_.strftime(topic, '%t'), '\t');
             assert.equal(_.strftime(topic, '%U'), '04');
             assert.equal(_.strftime(topic, '%u'), '6');
-//            assert.equal(_.strftime(topic, '%V'), '');
+            assert.equal(_.strftime(topic, '%V'), '05');
             assert.equal(_.strftime(topic, '%v'), ' 3-Feb-2001');
             assert.equal(_.strftime(topic, '%W'), '05');
             assert.equal(_.strftime(topic, '%w'), '6');
@@ -110,6 +110,14 @@ vows.describe('date').addBatch({
             assert.equal(_.weekNumber(_.date(2002, 1, 1), 1), 0);
             assert.equal(_.weekNumber(_.date(2002, 2, 1), 1), 4);
             assert.equal(_.weekNumber(_.date(2002, 12, 31), 1), 52);
+        },
+        'should support ISO weekNumber method': function () {
+            assert.equal(_.weekNumber(_.date(2001, 1, 1), 'iso'), 1);
+            assert.equal(_.weekNumber(_.date(2001, 2, 1), 'iso'), 5);
+            assert.equal(_.weekNumber(_.date(2005, 1, 1), 'iso'), 53);
+            assert.equal(_.weekNumber(_.date(2005, 2, 1), 'iso'), 5);
+            assert.equal(_.weekNumber(_.date(2001, 12, 31), 'iso'), 1);
+            assert.equal(_.weekNumber(_.date(2004, 12, 31), 'iso'), 53);
         }
     }
 }).export(module);
