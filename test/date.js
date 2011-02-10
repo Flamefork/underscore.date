@@ -69,11 +69,11 @@ vows.describe('date').addBatch({
 //            assert.equal(_.strftime(topic, '%s'), '');
             assert.equal(_.strftime(topic, '%T'), '04:05:06');
             assert.equal(_.strftime(topic, '%t'), '\t');
-//            assert.equal(_.strftime(topic, '%U'), '');
+            assert.equal(_.strftime(topic, '%U'), '04');
             assert.equal(_.strftime(topic, '%u'), '6');
 //            assert.equal(_.strftime(topic, '%V'), '');
 //            assert.equal(_.strftime(topic, '%v'), '');
-//            assert.equal(_.strftime(topic, '%W'), '');
+            assert.equal(_.strftime(topic, '%W'), '05');
             assert.equal(_.strftime(topic, '%w'), '6');
 //            assert.equal(_.strftime(topic, '%X'), '');
 //            assert.equal(_.strftime(topic, '%x'), '');
@@ -102,6 +102,14 @@ vows.describe('date').addBatch({
             assert.equal(_.dayOfWeek(_.date(2001, 1, 3), 0), 3);
             assert.equal(_.dayOfWeek(_.date(2001, 1, 3), 1), 2);
             assert.equal(_.dayOfWeek(_.date(2001, 1, 3), 3), 0);
+        },
+        'should support simple weekNumber method': function () {
+            assert.equal(_.weekNumber(_.date(2001, 1, 1), 0), 0);
+            assert.equal(_.weekNumber(_.date(2001, 1, 1), 1), 1);
+            assert.equal(_.weekNumber(_.date(2001, 2, 1), 1), 5);
+            assert.equal(_.weekNumber(_.date(2002, 1, 1), 1), 0);
+            assert.equal(_.weekNumber(_.date(2002, 2, 1), 1), 4);
+            assert.equal(_.weekNumber(_.date(2002, 12, 31), 1), 52);
         }
     }
 }).export(module);
