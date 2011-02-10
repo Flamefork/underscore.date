@@ -129,9 +129,3 @@ vows.describe('date').addBatch({
         }
     }
 }).export(module);
-
-/*
-var date = _.date(2011, 1, 25); // 25th January(!) 2011
-assert.equal(_.month(date), 1);
-assert.equal(_.month(date), _.month.JANUARY);
-*/
