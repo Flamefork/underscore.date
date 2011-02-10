@@ -54,7 +54,7 @@ vows.describe('date').addBatch({
 //            assert.equal(_.strftime(topic, '%G'), '');
 //            assert.equal(_.strftime(topic, '%g'), '');
             assert.equal(_.strftime(topic, '%H'), '04');
-//            assert.equal(_.strftime(topic, '%h'), '');
+            assert.equal(_.strftime(topic, '%h'), 'Feb');
             assert.equal(_.strftime(topic, '%I'), '04');
             assert.equal(_.strftime(topic, '%j'), '034');
             assert.equal(_.strftime(topic, '%k'), ' 4');
@@ -64,7 +64,7 @@ vows.describe('date').addBatch({
             assert.equal(_.strftime(topic, '%n'), '\n');
             assert.equal(_.strftime(topic, '%p'), 'AM');
             assert.equal(_.strftime(topic, '%R'), '04:05');
-//            assert.equal(_.strftime(topic, '%r'), '');
+            assert.equal(_.strftime(topic, '%r'), '04:05:06 AM');
             assert.equal(_.strftime(topic, '%S'), '06');
 //            assert.equal(_.strftime(topic, '%s'), '');
             assert.equal(_.strftime(topic, '%T'), '04:05:06');
@@ -72,7 +72,7 @@ vows.describe('date').addBatch({
             assert.equal(_.strftime(topic, '%U'), '04');
             assert.equal(_.strftime(topic, '%u'), '6');
 //            assert.equal(_.strftime(topic, '%V'), '');
-//            assert.equal(_.strftime(topic, '%v'), '');
+            assert.equal(_.strftime(topic, '%v'), ' 3-Feb-2001');
             assert.equal(_.strftime(topic, '%W'), '05');
             assert.equal(_.strftime(topic, '%w'), '6');
 //            assert.equal(_.strftime(topic, '%X'), '');
