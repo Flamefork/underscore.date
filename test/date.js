@@ -66,7 +66,7 @@ vows.describe('date').addBatch({
             assert.equal(_.strftime(topic, '%R'), '04:05');
             assert.equal(_.strftime(topic, '%r'), '04:05:06 AM');
             assert.equal(_.strftime(topic, '%S'), '06');
-//            assert.equal(_.strftime(topic, '%s'), '');
+            assert.equal(_.strftime(topic, '%s'), (981173106 + topic.getTimezoneOffset()*60).toString());
             assert.equal(_.strftime(topic, '%T'), '04:05:06');
             assert.equal(_.strftime(topic, '%t'), '\t');
             assert.equal(_.strftime(topic, '%U'), '04');
