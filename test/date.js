@@ -79,9 +79,25 @@ vows.describe('date').addBatch({
             assert.equal(_.strftime(topic, '%x'), '02/03/01');
             assert.equal(_.strftime(topic, '%Y'), '2001');
             assert.equal(_.strftime(topic, '%y'), '01');
-//            assert.equal(_.strftime(topic, '%Z'), '');
-//            assert.equal(_.strftime(topic, '%z'), '');
             assert.equal(_.strftime(topic, '%%'), '%');
+            
+        },
+        'using local system timezone': {
+            topic: function (topic) {
+                var callback = this.callback;
+                require('child_process').exec('date +%Z', function (error, stdout) {
+                    var zoneNum = -topic.getTimezoneOffset()/60*100;
+                    callback(error, stdout.trim(), zoneNum, topic);
+                });
+            },
+            'should support timeZone method': function (error, zoneName, zoneNum, topic) {
+                assert.equal(_.timeZone(topic), zoneName);
+                assert.equal(_.timeZone(topic, true), zoneNum);
+            },
+            'should support strftime timezone feature': function (error, zoneName, zoneNum, topic) {
+                assert.equal(_.strftime(topic, '%Z'), zoneName);
+                assert.equal(_.strftime(topic, '%z'), zoneNum);
+            }
         },
         'should support strftime edge cases': function () {
             assert.equal(_.strftime(_.date(2001, 1, 1, 0), '%I %p'), '12 AM');
