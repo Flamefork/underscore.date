@@ -11,8 +11,8 @@ As name states this an extension for Underscore.js, but it can be used independe
 Project is far form complete.
 For now it has only convinient constructors and strftime function implementation as major part.
 
-Roadmap:
-— Date/time arithmetic
+Roadmap:  
+— Date/time arithmetic  
 — Real support for time zones
 
 ## Date constructors
@@ -32,8 +32,10 @@ They both produce native JavaScript Date objects.
     _.utc(2011, 2, 19)
     => [Sat, 19 Feb 2011 00:00:00 GMT]
 
+This constructor creates Date object from ISO 8601 string (like in JSON).
+Unless you pass false as a second argument, it will try to use native support for this format.
 
-### _.dateFromISOString(iso8601string)
+### _.dateFromISOString(iso8601string, [tryNative])
 
     _.dateFromISOString('2011-08-31T16:09:51Z')
     => [Wed, 31 Aug 2011 16:09:51 GMT]

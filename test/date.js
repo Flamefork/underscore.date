@@ -144,7 +144,7 @@ vows.describe('date').addBatch({
             assert.equal(_.weekBasedYear(_.date(2004, 12, 31)), 2004);
         }
     },
-    'Date object being created by dateFromISOString(s)': {
+    'Date object being created by dateFromISOString(s, false)': {
         topic: _.map([
             ['2011-08-31T16:09:51.123Z', [2011, 8, 31, 16, 9, 51, 123]],
             ['2011-08-31T16:09:51Z', [2011, 8, 31, 16, 9, 51]],
@@ -156,7 +156,7 @@ vows.describe('date').addBatch({
             return {
                 source: pair[0],
                 expected: _.utc.apply(_, pair[1]),
-                actual: _.dateFromISOString(pair[0])
+                actual: _.dateFromISOString(pair[0], false)
             };
         }),
         'should be instance of system Date': function (topic) {
