@@ -143,5 +143,31 @@ vows.describe('date').addBatch({
             assert.equal(_.weekBasedYear(_.date(2001, 12, 31)), 2002);
             assert.equal(_.weekBasedYear(_.date(2004, 12, 31)), 2004);
         }
+    },
+    'Date object being created by dateFromISOString(s)': {
+        topic: _.map([
+            ['2011-08-31T16:09:51.123Z', [2011, 8, 31, 16, 9, 51, 123]],
+            ['2011-08-31T16:09:51Z', [2011, 8, 31, 16, 9, 51]],
+            ['2011-08-31Z', [2011, 8, 31]],
+            ['2011-08-31+02:30', [2011, 8, 31, 2, 30]],
+            ['2011-08-31-02:30', [2011, 8, 30, 21, 30]],
+            ['2011-08-31+02', [2011, 8, 31, 2]]
+        ], function (pair) {
+            return {
+                source: pair[0],
+                expected: _.utc.apply(_, pair[1]),
+                actual: _.dateFromISOString(pair[0])
+            };
+        }),
+        'should be instance of system Date': function (topic) {
+            _.each(topic, function (data) {
+                assert.isTrue(data.actual instanceof Date, 'dateFromISOString("' + data.source + '") is not Date object');
+            });
+        },
+        'should represent proper date': function (topic) {
+            _.each(topic, function (data) {
+                assert.equal(data.actual.valueOf(), data.expected.valueOf(), 'dateFromISOString("' + data.source + '") parsed as ' + data.actual.toString() + ' instead of ' + data.expected.toString());
+            });
+        }
     }
 }).export(module);

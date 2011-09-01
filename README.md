@@ -32,6 +32,12 @@ They both produce native JavaScript Date objects.
     _.utc(2011, 2, 19)
     => [Sat, 19 Feb 2011 00:00:00 GMT]
 
+
+### _.dateFromISOString(iso8601string)
+
+    _.dateFromISOString('2011-08-31T16:09:51Z')
+    => [Wed, 31 Aug 2011 16:09:51 GMT]
+
 ## Date functions
 
 ### _.strftime(date, format)
