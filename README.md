@@ -64,6 +64,25 @@ Localization for non-English locales can be achieved by providing hash with stri
         timeFormat: '%H:%M:%S'
     };
 
+### _.distanceOfTimeInWords(fromTime, [toTime, [includeSeconds]])
+
+ActiveSupport like representation of distance of time. Actually it's straight 1:1 port. For more detailed documentation, see the [ActiveSupport doc][asd].
+
+[asd]: http://api.rubyonrails.org/classes/ActionView/Helpers/DateHelper.html#method-i-distance_of_time_in_words
+
+    _.distanceOfTimeInWords(_.date(2001, 10, 10, 1, 10, 0), _.date(2001, 10, 10, 0, 0, 0))
+    => about 1 hour
+
+Localization for non-English locales can be achieved by providing function like the following:
+
+    _d.distanceOfTimeInWords.i18n.en = function (qualifier, count, measure) {
+        // qualifier values: ['', 'about', 'less than', 'half']
+        // count: number of minutes/seconds/etc
+        // measure values: ['second', 'minute', 'hour', 'day', 'month', 'year']
+        return "some localized string";
+    }
+
+
 ### _.dayOfYear(date)
 
 Day of the year (001-366)

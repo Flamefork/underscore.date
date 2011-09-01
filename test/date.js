@@ -169,5 +169,24 @@ vows.describe('date').addBatch({
                 assert.equal(data.actual.valueOf(), data.expected.valueOf(), 'dateFromISOString("' + data.source + '") parsed as ' + data.actual.toString() + ' instead of ' + data.expected.toString());
             });
         }
+    },
+    'distanceOfTimeInWords method': {
+        'shoud provide proper distances': function () {
+            var base = _.utc(2011, 5, 15, 12, 0, 0);
+            assert.equal(_.distanceOfTimeInWords(base, _.utc(2011, 5, 15, 12, 0, 0), true), 'less than 5 seconds');
+            assert.equal(_.distanceOfTimeInWords(base, _.utc(2011, 5, 15, 12, 0,20), true), 'half a minute');
+            assert.equal(_.distanceOfTimeInWords(base, _.utc(2011, 5, 15, 12, 1, 0), true), '1 minute');
+            assert.equal(_.distanceOfTimeInWords(base, _.utc(2011, 5, 15, 12, 0, 0)), 'less than a minute');
+            assert.equal(_.distanceOfTimeInWords(base, _.utc(2011, 5, 15, 12, 1, 0)), '1 minute');
+            assert.equal(_.distanceOfTimeInWords(base, _.utc(2011, 5, 15, 12,30, 0)), '30 minutes');
+            assert.equal(_.distanceOfTimeInWords(base, _.utc(2011, 5, 15, 13, 1, 0)), 'about 1 hour');
+            assert.equal(_.distanceOfTimeInWords(base, _.utc(2011, 5, 15, 15, 1, 0)), 'about 3 hours');
+            assert.equal(_.distanceOfTimeInWords(base, _.utc(2011, 5, 16, 15, 1, 0)), '1 day');
+            assert.equal(_.distanceOfTimeInWords(base, _.utc(2011, 5, 19, 15, 1, 0)), '4 days');
+            assert.equal(_.distanceOfTimeInWords(base, _.utc(2011, 6, 16, 15, 1, 0)), 'about 1 month');
+            assert.equal(_.distanceOfTimeInWords(base, _.utc(2011, 8, 16, 15, 1, 0)), '3 months');
+            assert.equal(_.distanceOfTimeInWords(base, _.utc(2012, 6, 16, 15, 1, 0)), 'about 1 year');
+            assert.equal(_.distanceOfTimeInWords(base, _.utc(2022, 6, 16, 15, 1, 0)), 'about 11 years');
+        }
     }
 }).export(module);
