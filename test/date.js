@@ -85,7 +85,7 @@ vows.describe('date').addBatch({
         'using local system timezone': {
             topic: function (topic) {
                 var callback = this.callback;
-                require('child_process').exec('date +%Z', function (error, stdout) {
+                require('child_process').exec('date -j 020304052001 +%Z', function (error, stdout) {
                     var zoneNum = -topic.getTimezoneOffset()/60*100;
                     callback(error, stdout.trim(), zoneNum, topic);
                 });
