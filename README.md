@@ -1,15 +1,12 @@
 # Underscore.date
 
+[![travis-ci](https://secure.travis-ci.org/Flamefork/underscore.date.png)](http://travis-ci.org/#!/Flamefork/underscore.date)
+
 Heavily inspired by Underscore.string project
 
 Date/iime operations support in JavaScript is far from ideal. Goal of this project is consistent date/time library.
 
 As name states this an extension for Underscore.js, but it can be used independently from _d-global variable. But with Underscore.js you can use Object-Oriented style.
-
-## Status
-
-Project is far form complete.
-For now it has only convinient constructors and strftime function implementation as major part.
 
 Roadmap:  
 — Date/time arithmetic  
