@@ -19,7 +19,7 @@
     "underscore": "1.1.x"
   },
   "devDependencies": {
-    "underscore": "0.5.x"
+    "vows": "0.5.x"
   },
   "repository": {
     "type": "git",
