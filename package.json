@@ -16,7 +16,10 @@
     "node": "*"
   },
   "dependencies": {
-    "underscore": "1.1.4"
+    "underscore": "1.1.x"
+  },
+  "devDependencies": {
+    "underscore": "0.5.x"
   },
   "repository": {
     "type": "git",
@@ -29,6 +32,6 @@
     { "type" : "MIT" }
   ],
   "scripts": {
-    "test": "vows test/*.js --spec"
+    "test": "vows test/* --spec"
   }
 }
